@@ -11,6 +11,8 @@ before_install:
  - chmod +x gradlew
 env:
  - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
+after_success:
+ - ./gradlew assemble
 deploy:
   provider: script
   script: ./gradlew clean
