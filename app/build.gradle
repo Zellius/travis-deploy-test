@@ -36,6 +36,7 @@ if(lib_tag != null){
     lib_version = (lib_tag =~ /v(\d+\.\d+\.\d+)/)[0][1]
 }
 
+
 group 'com.github.zellius'
 version lib_version
 
