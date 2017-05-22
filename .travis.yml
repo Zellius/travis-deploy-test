@@ -17,4 +17,4 @@ deploy:
   provider: script
   script: ./gradlew clean assemble
   on:
-    tags: true
+    tags: false
