@@ -24,6 +24,7 @@ dependencies {
 }
 
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 def repository_url = 'https://github.com/Zellius/travis-deploy-test'
 def lib_name = 'travis-deploy-test'
@@ -37,6 +38,35 @@ if(lib_tag != null){
 
 group 'com.github.zellius'
 version lib_version
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+
+                name lib_name
+                description lib_description
+                url repository_url
+
+                developers {
+                    developer {
+                        id 'zellius'
+                        name 'Sergey Solodovnikov'
+                        email 'elementa.ru@gmail.com'
+                    }
+                }
+
+                scm {
+                    url repository_url
+                    connection "scm:${repository_url}.git"
+                    developerConnection "scm:${repository_url}.git"
+
+                }
+            }
+        }
+    }
+}
 
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
