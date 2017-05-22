@@ -25,6 +25,8 @@ dependencies {
 
 apply plugin: 'com.jfrog.bintray'
 
+group 'com.github.zellius'
+
 def repository_url = 'https://github.com/Zellius/travis-deploy-test'
 def lib_name = 'travis-deploy-test'
 def lib_description = 'travis-deploy-test'
