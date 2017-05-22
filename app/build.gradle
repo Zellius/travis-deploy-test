@@ -28,7 +28,12 @@ apply plugin: 'com.jfrog.bintray'
 def repository_url = 'https://github.com/Zellius/travis-deploy-test'
 def lib_name = 'travis-deploy-test'
 def lib_description = 'travis-deploy-test'
-def lib_version =  project.hasProperty('tag') ? project.property('tag') : System.getenv('TRAVIS_TAG')
+def lib_tag =  project.hasProperty('tag') ? project.property('tag') : System.getenv('TRAVIS_TAG')
+def lib_version = ''
+
+if(lib_tag != null){
+    lib_version = (lib_tag =~ /v(\d+\.\d+\.\d+)/)[0][1]
+}
 
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
@@ -48,7 +53,7 @@ bintray {
 
         version {
             name = lib_version
-            vcsTag = "v$lib_version"
+            vcsTag = lib_tag
             released = new Date()
         }
     }
