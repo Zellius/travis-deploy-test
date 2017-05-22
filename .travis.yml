@@ -13,6 +13,8 @@ script:
  - ./gradlew clean build -PdisablePreDex --continue --stacktrace
 env:
  - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
-branches:
-  only:
-    - master
+deploy:
+  provider: script
+  script: ./gradlew clean assemble
+  on:
+    tags: true
