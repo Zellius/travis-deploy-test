@@ -15,7 +15,7 @@ after_success:
  - ./gradlew assemble
 deploy:
   provider: script
-  script: ./gradlew clean
+  script: ./gradlew bintrayUpload -PdryRun=false
   skip_cleanup: true
   on:
     tags: true
