@@ -9,13 +9,11 @@ android:
     - extra-android-m2repository
 before_install:
  - chmod +x gradlew
-#script:
-# - ./gradlew clean build -PdisablePreDex --continue --stacktrace
 env:
  - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
 deploy:
   provider: script
-  script: ./gradlew clean assemble
+  script: ./gradlew clean
   skip_cleanup: true
   on:
     tags: true
