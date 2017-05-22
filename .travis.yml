@@ -16,5 +16,10 @@ env:
 deploy:
   provider: script
   script: ./gradlew clean assemble
+  skip_cleanup: true
   on:
-    tags: false
+    tags: true
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+$/
