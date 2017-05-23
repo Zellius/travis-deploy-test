@@ -25,6 +25,7 @@ dependencies {
 
 def lib_tag = project.hasProperty('tag') ? project.property('tag') : System.getenv('TRAVIS_TAG')
 
+
 if (lib_tag?.trim()) {
     apply plugin: 'com.jfrog.bintray'
     apply plugin: 'com.github.dcendents.android-maven'
