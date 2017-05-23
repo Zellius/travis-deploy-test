@@ -19,6 +19,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    branch: /^v\d+\.\d+\.\d+$/
 branches:
   only:
     - master
